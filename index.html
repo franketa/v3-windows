@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Home Window Prices | Get Free Quotes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Home Window Prices</h1>
+            <p>Compare quotes from top-rated window installers in your area</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="windows-quote-form">
+                <!-- Progress indicator -->
+                <div class="progress-container">
+                    <div class="progress-dots">
+                        <div class="progress-dot active" data-step="1"></div>
+                        <div class="progress-line"></div>
+                        <div class="progress-dot" data-step="2"></div>
+                        <div class="progress-line"></div>
+                        <div class="progress-dot" data-step="3"></div>
+                        <div class="progress-line"></div>
+                        <div class="progress-dot" data-step="4"></div>
+                    </div>
+                </div>
+                
+                <!-- Step 1: ZIP Code -->
+                <div class="step active" id="step1" data-step="1">
+                    <div class="step-inner">
+                        <div class="step-header">
+                            <p class="step-header-title">Compare Home Windows <b><em>Prices</em></b> Today!</p>
+                        </div>
+                        <div class="step-content">
+                            <p class="step-title">What is your zip code?</p>
+                            <div class="step-fields">
+                                <div class="form-group">
+                                    <div class="form-input-group">
+                                        <input class="form-input zip" name="zip" id="zip" type="text" 
+                                               pattern="[0-9]*" maxlength="5" required data-required="zip" placeholder=" ">
+                                        <label for="zip" class="form-group-label">ZIP Code</label>
+                                        <span class="form-input-group-icon">
+                                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <p id="error-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="button" id="step1-button">
+                                <span class="btn-text">Go</span>
+                                <span class="btn-spinner"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
