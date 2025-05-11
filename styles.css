@@ -1,0 +1,195 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.header {
+    background-color: #0071bc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Step styles */
+.step {
+    display: none;
+    padding: 30px;
+    width: 100%;
+}
+
+.step.active {
+    display: block;
+}
+
+.step-header {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.step-header-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0071bc;
+}
+
+.step-header-title em {
+    font-style: italic;
+    color: #0071bc;
+}
+
+.step-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.step-subtitle {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.step-fields {
+    margin-bottom: 25px;
+}
+
+.step-extra {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Progress indicator */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.progress-dots {
+    display: flex;
+    align-items: center;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+}
+
+.progress-dot.active {
+    background-color: #0071bc;
+}
+
+.progress-line {
+    height: 2px;
+    width: 30px;
+    background-color: #ddd;
+}
+
+.progress-line.active {
+    background-color: #0071bc;
+}
+
+/* Form elements */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-input-group {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #0071bc;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 113, 188, 0.2);
+}
+
+.form-input.zip {
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.form-group-label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.form-input:focus + .form-group-label,
+.form-input:not(:placeholder-shown) + .form-group-label {
+    top: 0;
+    left: 10px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.form-input-group-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.form-group-error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
