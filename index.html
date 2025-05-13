@@ -9,52 +9,356 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Home Window Prices</h1>
-            <p>Compare quotes from top-rated window installers in your area</p>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" alt="Home Window Prices Logo" class="logo-icon">
+                <span class="logo-text">Home<span class="logo-accent">Window</span>Prices</span>
+            </div>
+            <div class="header-right">
+                <div class="bbb-badge">
+                    <img src="https://www.bbb.org/TerminusContent/dist/img/business-profile/accreditation/AB-seal.svg" alt="BBB Accredited Business" width="80">
+                </div>
+            </div>
         </div>
-        
-        <div class="form-container">
-            <form id="windows-quote-form">
-                <!-- Progress indicator -->
-                <div class="progress-container">
-                    <div class="progress-dots">
-                        <div class="progress-dot active" data-step="1"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-dot" data-step="2"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-dot" data-step="3"></div>
-                        <div class="progress-line"></div>
-                        <div class="progress-dot" data-step="4"></div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find <span class="highlight">Local</span> Home Window <span class="highlight">Prices</span> By Zip Code</h1>
+                
+                <div class="service-icons">
+                    <div class="service-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <span>Search Local<br>Dealers</span>
+                    </div>
+                    <div class="service-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <span>Review Top<br>Brands</span>
+                    </div>
+                    <div class="service-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <span>Compare<br>Multiple Quotes</span>
+                    </div>
+                    <div class="service-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <span>Find The Best<br>Deals</span>
                     </div>
                 </div>
-                
-                <!-- Step 1: ZIP Code -->
-                <div class="step active" id="step1" data-step="1">
-                    <div class="step-inner">
-                        <div class="step-header">
-                            <p class="step-header-title">Compare Home Windows <b><em>Prices</em></b> Today!</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="windows-quote-form">
+                    <!-- Progress indicator -->
+                    <div class="progress-container">
+                        <div class="progress-dots">
+                            <div class="progress-dot active" data-step="1"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-dot" data-step="2"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-dot" data-step="3"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-dot" data-step="4"></div>
                         </div>
-                        <div class="step-content">
-                            <p class="step-title">What is your zip code?</p>
-                            <div class="step-fields">
-                                <div class="form-group">
-                                    <div class="form-input-group">
-                                        <input class="form-input zip" name="zip" id="zip" type="text" 
-                                               pattern="[0-9]*" maxlength="5" required data-required="zip" placeholder=" ">
-                                        <label for="zip" class="form-group-label">ZIP Code</label>
-                                        <span class="form-input-group-icon">
-                                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                        </span>
+                    </div>
+                    
+                    <!-- Step 1: ZIP Code -->
+                    <div class="step active" id="step1" data-step="1">
+                        <div class="step-inner">
+                            <div class="step-header">
+                                <p class="step-header-title">Compare Home Windows <b><em>Prices</em></b> Today!</p>
+                            </div>
+                            <div class="step-content">
+                                <p class="step-title">What is your zip code?</p>
+                                <div class="step-fields">
+                                    <div class="form-group">
+                                        <div class="form-input-group">
+                                            <input class="form-input zip" name="zip" id="zip" type="text" 
+                                                   pattern="[0-9]*" maxlength="5" required data-required="zip" placeholder=" ">
+                                            <label for="zip" class="form-group-label">ZIP Code</label>
+                                            <span class="form-input-group-icon">
+                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <p id="error-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
                                     </div>
-                                    <p id="error-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
+                                </div>
+                                <button class="btn btn-primary" type="button" id="step1-button">
+                                    <span class="btn-text">GO</span>
+                                    <span class="btn-spinner"></span>
+                                </button>
+                                <div class="form-arrow-indicator">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/271/271226.png" alt="Arrow" class="arrow-icon">
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="button" id="step1-button">
-                                <span class="btn-text">Go</span>
-                                <span class="btn-spinner"></span>
-                            </button>
                         </div>
                     </div>
+                    
+                    <!-- Step 2: Project Scope -->
+                    <div class="step" id="step2" data-step="2">
+                        <div class="step-inner">
+                            <div class="step-header">
+                                <p class="step-header-title">Tell us about your <b><em>windows project</em></b></p>
+                            </div>
+                            <div class="step-content">
+                                <p class="step-title">What is the nature of your windows project?</p>
+                                <div class="step-fields radio-group">
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="WindowsProjectScope" value="Replace Existing Windows">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">Replace Existing Windows</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="WindowsProjectScope" value="Install New Windows">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">Install New Windows</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="WindowsProjectScope" value="Not Sure Yet">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">Not Sure Yet</span>
+                                    </label>
+                                </div>
+                                <div class="step-buttons">
+                                    <button class="btn btn-secondary" type="button" id="step2-back">
+                                        <span class="btn-text">Back</span>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step2-button">
+                                        <span class="btn-text">Continue</span>
+                                        <span class="btn-spinner"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Number of Windows -->
+                    <div class="step" id="step3" data-step="3">
+                        <div class="step-inner">
+                            <div class="step-header">
+                                <p class="step-header-title">Tell us about the <b><em>number of windows</em></b></p>
+                            </div>
+                            <div class="step-content">
+                                <p class="step-title">How many windows are involved in your project?</p>
+                                <div class="step-fields radio-group">
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="NumberOfWindows" value="1">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">1 Window</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="NumberOfWindows" value="2-5">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">2-5 Windows</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="NumberOfWindows" value="6-10">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">6-10 Windows</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="NumberOfWindows" value="More than 10">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">More than 10 Windows</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="step-extra">
+                                    <p class="step-title">Would you be open to a quote for multiple windows?</p>
+                                    <div class="step-fields radio-group">
+                                        <label class="radio-button-label">
+                                            <input type="radio" name="MultipleWindows" value="Yes">
+                                            <span class="radio-button-custom"></span>
+                                            <span class="radio-button-text">Yes</span>
+                                        </label>
+                                        <label class="radio-button-label">
+                                            <input type="radio" name="MultipleWindows" value="No">
+                                            <span class="radio-button-custom"></span>
+                                            <span class="radio-button-text">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-buttons">
+                                    <button class="btn btn-secondary" type="button" id="step3-back">
+                                        <span class="btn-text">Back</span>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step3-button">
+                                        <span class="btn-text">Continue</span>
+                                        <span class="btn-spinner"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Contact Information -->
+                    <div class="step" id="step4" data-step="4">
+                        <div class="step-inner">
+                            <div class="step-header">
+                                <p class="step-header-title">Almost there! <b><em>Your contact details</em></b></p>
+                            </div>
+                            <div class="step-content">
+                                <p class="step-title">Please provide your contact information to receive quotes</p>
+                                <div class="step-fields">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <div class="form-input-group">
+                                                <input class="form-input" name="firstName" id="firstName" type="text" required placeholder=" ">
+                                                <label for="firstName" class="form-group-label">First Name</label>
+                                                <span class="form-input-group-icon">
+                                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <p id="error-firstName" class="form-group-error-message">Please enter your first name.</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-input-group">
+                                                <input class="form-input" name="lastName" id="lastName" type="text" required placeholder=" ">
+                                                <label for="lastName" class="form-group-label">Last Name</label>
+                                                <span class="form-input-group-icon">
+                                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <p id="error-lastName" class="form-group-error-message">Please enter your last name.</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-input-group">
+                                            <input class="form-input" name="email" id="email" type="email" required placeholder=" ">
+                                            <label for="email" class="form-group-label">Email Address</label>
+                                            <span class="form-input-group-icon">
+                                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <p id="error-email" class="form-group-error-message">Please enter a valid email address.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-input-group">
+                                            <input class="form-input" name="phone" id="phone" type="tel" required placeholder=" ">
+                                            <label for="phone" class="form-group-label">Phone Number</label>
+                                            <span class="form-input-group-icon">
+                                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <p id="error-phone" class="form-group-error-message">Please enter a valid phone number.</p>
+                                    </div>
+                                    <div class="form-group checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="terms" id="terms" required>
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                                        </label>
+                                        <p id="error-terms" class="form-group-error-message">You must agree to the terms to continue.</p>
+                                    </div>
+                                </div>
+                                <div class="step-buttons">
+                                    <button class="btn btn-secondary" type="button" id="step4-back">
+                                        <span class="btn-text">Back</span>
+                                    </button>
+                                    <button class="btn btn-primary" type="submit" id="submit-form">
+                                        <span class="btn-text">Get Free Quotes</span>
+                                        <span class="btn-spinner"></span>
+                                    </button>
+                                </div>
+                                <div class="form-footer">
+                                    <div class="trust-badges">
+                                        <div class="trust-badge">
+                                            <i class="fas fa-lock"></i> Secure
+                                        </div>
+                                        <div class="trust-badge">
+                                            <i class="fas fa-check-circle"></i> No Obligation
+                                        </div>
+                                        <div class="trust-badge">
+                                            <i class="fas fa-shield-alt"></i> Privacy Protected
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="brand-section">
+        <div class="container">
+            <p class="brand-text">Compare Prices from Top Home Window Companies:</p>
+            <div class="brand-logos">
+                <img src="https://www.pella.com/assets/images/pella-logo.svg" alt="Pella" class="brand-logo">
+                <img src="https://www.renewalbyandersen.com/assets/images/renewal-by-andersen-logo.png" alt="Renewal by Andersen" class="brand-logo">
+                <img src="https://www.jeld-wen.com/assets/images/jeld-wen-logo.svg" alt="Jeld-Wen" class="brand-logo">
+                <img src="https://www.milgard.com/sites/default/files/milgard-logo.png" alt="Milgard" class="brand-logo">
+                <div class="more-brands">
+                    <i class="fas fa-plus"></i>
+                    <span>Over 100<br>More Brands</span>
                 </div>
+            </div>
+            <p class="disclaimer">Actual companies matched are dependent on local availability & other factors</p>
+        </div>
+    </div>
+
+    <div class="benefits">
+        <div class="container">
+            <h2>Why Choose Our Window Quote Service?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Free, No-Obligation Quotes</h3>
+                        <p>Get multiple quotes from top-rated window companies in your area at no cost.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Vetted Professionals</h3>
+                        <p>We only work with licensed, insured, and experienced window contractors.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Save Time & Money</h3>
+                        <p>Compare prices and options to find the best deal for your budget.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>Our network of contractors is committed to quality workmanship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Home Window Prices. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service | Contact Us</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
