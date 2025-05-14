@@ -306,15 +306,34 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 12px 15px;
+  padding: 15px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
 .radio-button-label:hover {
   background-color: var(--primary-color-light);
   border-color: var(--primary-color-transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.radio-button-label:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(0, 113, 188, 0.2);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
 }
 
 .radio-button-label input[type="radio"] {
@@ -346,6 +365,7 @@ body {
 
 .radio-button-label input[type="radio"]:checked + .radio-button-custom {
   border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 113, 188, 0.2);
 }
 
 .radio-button-label input[type="radio"]:checked + .radio-button-custom:after {
@@ -357,8 +377,33 @@ body {
   font-weight: var(--font-weight-semibold);
 }
 
+.radio-button-label input[type="radio"]:checked ~ .radio-button-label:after {
+  animation: radio-ripple 0.8s ease-out;
+}
+
+@keyframes radio-ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
 .radio-button-text {
   flex: 1;
+}
+
+/* Add a subtle loading indicator for radio selection */
+.radio-button-label.selected {
+  background-color: var(--primary-color-light);
+  border-color: var(--primary-color);
 }
 
 /* Checkbox Styles */
@@ -690,7 +735,7 @@ body {
   }
   
   .step-inner {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
   }
   
   .benefits {
@@ -706,11 +751,48 @@ body {
     align-items: center;
     gap: var(--spacing-md);
   }
+  
+  .form-container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .service-icons {
+    justify-content: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .brand-logos {
+    gap: 20px;
+  }
+  
+  .brand-logo {
+    height: 30px;
+  }
 }
 
 @media (max-width: 576px) {
   body {
     padding: 0px;
+  }
+  
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .form-container {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .step-inner {
+    padding: var(--spacing-md) var(--spacing-md);
   }
   
   .header h1 {
@@ -731,10 +813,38 @@ body {
   
   .step-buttons {
     flex-direction: column;
+    gap: 10px;
   }
   
   .btn {
     width: 100%;
+  }
+  
+  /* Form input spacing for mobile */
+  .form-input-group {
+    margin-bottom: 10px;
+  }
+  
+  /* Add padding to radio buttons on mobile */
+  .radio-button-label {
+    padding: 12px 10px;
+  }
+  
+  .service-icon {
+    width: 100px;
+  }
+  
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon-circle i {
+    font-size: 20px;
+  }
+  
+  .service-icon span {
+    font-size: 12px;
   }
 }
 
@@ -1063,6 +1173,7 @@ body {
 @media (max-width: 768px) {
   .service-icons {
     justify-content: center;
+    display:none;
   }
   
   .hero-content h1 {

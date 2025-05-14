@@ -36,52 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 800);
     });
     
-    // Step 2 - Project scope selection and navigation
-    document.getElementById('step2-button').addEventListener('click', function() {
-        const projectScope = document.querySelector('input[name="WindowsProjectScope"]:checked');
-        
-        // Show loading spinner
-        this.querySelector('.btn-spinner').style.display = 'inline-block';
-        
-        setTimeout(() => {
-            if (projectScope) {
-                showStep(3);
-            } else {
-                alert('Please select the nature of your windows project.');
-            }
-            
-            // Hide spinner
-            this.querySelector('.btn-spinner').style.display = 'none';
-        }, 500);
-    });
-    
+    // Step 2 - Back button
     document.getElementById('step2-back').addEventListener('click', function() {
         showStep(1);
     });
     
-    // Step 3 - Number of windows selection and navigation
-    document.getElementById('step3-button').addEventListener('click', function() {
-        const numberOfWindows = document.querySelector('input[name="NumberOfWindows"]:checked');
-        const multipleWindows = document.querySelector('input[name="MultipleWindows"]:checked');
-        
-        // Show loading spinner
-        this.querySelector('.btn-spinner').style.display = 'inline-block';
-        
-        setTimeout(() => {
-            // Check if single window selected and multiple windows question answered
-            if (numberOfWindows && (numberOfWindows.value !== '1' || multipleWindows)) {
-                showStep(4);
-            } else if (numberOfWindows && numberOfWindows.value === '1' && !multipleWindows) {
-                alert('Please answer if you would be open to a quote for multiple windows.');
-            } else {
-                alert('Please select how many windows are involved.');
-            }
-            
-            // Hide spinner
-            this.querySelector('.btn-spinner').style.display = 'none';
-        }, 500);
-    });
-    
+    // Step 3 - Back button
     document.getElementById('step3-back').addEventListener('click', function() {
         showStep(2);
     });
@@ -136,24 +96,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const windowsNumberInputs = document.querySelectorAll('input[name="NumberOfWindows"]');
     const multipleWindowsSection = document.querySelector('.step-extra');
     
-    windowsNumberInputs.forEach(input => {
-        input.addEventListener('change', function() {
-            if (this.value === '1') {
-                multipleWindowsSection.style.display = 'block';
-            } else {
-                multipleWindowsSection.style.display = 'none';
-                // Reset multiple windows selection if not needed
-                document.querySelectorAll('input[name="MultipleWindows"]').forEach(radio => {
-                    radio.checked = false;
-                });
-            }
+    if (multipleWindowsSection) {
+        windowsNumberInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value === '1') {
+                    multipleWindowsSection.style.display = 'block';
+                } else {
+                    multipleWindowsSection.style.display = 'none';
+                    // Reset multiple windows selection if not needed
+                    document.querySelectorAll('input[name="MultipleWindows"]').forEach(radio => {
+                        radio.checked = false;
+                    });
+                }
+            });
         });
-    });
+        
+        // Initially hide the multiple windows question
+        multipleWindowsSection.style.display = 'none';
+    }
     
-    // Initially hide the multiple windows question
-    multipleWindowsSection.style.display = 'none';
-    
-    // Add animation to radio buttons
+    // Add animation to radio buttons and auto-advance functionality
     const radioButtons = document.querySelectorAll('.radio-button-label');
     radioButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -165,6 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Trigger the change event for the number of windows inputs
                 if (radio.name === 'NumberOfWindows') {
                     radio.dispatchEvent(new Event('change'));
+                }
+                
+                // Auto-advance to next step after selection
+                const currentStep = parseInt(this.closest('.step').dataset.step);
+                
+                // For step 2 (project scope), advance immediately
+                if (radio.name === 'WindowsProjectScope') {
+                    setTimeout(() => showStep(currentStep + 1), 500);
+                }
+                
+                // For step 3 (number of windows), advance if not "1" or if "1" and multiple windows is selected
+                if (radio.name === 'NumberOfWindows' && radio.value !== '1') {
+                    setTimeout(() => showStep(currentStep + 1), 500);
+                }
+                
+                // For multiple windows question, advance if we're on step 3
+                if (radio.name === 'MultipleWindows' && currentStep === 3) {
+                    setTimeout(() => showStep(currentStep + 1), 500);
                 }
             }
         });
@@ -282,6 +262,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // ... existing code ...
 });
