@@ -68,6 +68,8 @@
                             <div class="progress-dot" data-step="3"></div>
                             <div class="progress-line"></div>
                             <div class="progress-dot" data-step="4"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-dot" data-step="5"></div>
                         </div>
                     </div>
                     
@@ -138,8 +140,43 @@
                         </div>
                     </div>
                     
-                    <!-- Step 3: Number of Windows -->
+                    <!-- Step 3: Home Ownership -->
                     <div class="step" id="step3" data-step="3">
+                        <div class="step-inner">
+                            <div class="step-header">
+                                <p class="step-header-title">Tell us about your <b><em>home ownership</em></b></p>
+                            </div>
+                            <div class="step-content">
+                                <p class="step-title">Do you own your home?</p>
+                                <div class="step-fields radio-group">
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="HomeOwnership" value="Yes">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">Yes</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="HomeOwnership" value="No, but I'm allowed to make changes">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">No, but I'm allowed to make changes</span>
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input type="radio" name="HomeOwnership" value="No">
+                                        <span class="radio-button-custom"></span>
+                                        <span class="radio-button-text">No</span>
+                                    </label>
+                                </div>
+                                <div class="step-buttons">
+                                    <button class="btn btn-secondary" type="button" id="step3-back">
+                                        <span class="btn-text">Back</span>
+                                    </button>
+                                    <!-- Continue button removed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Number of Windows (previously Step 3) -->
+                    <div class="step" id="step4" data-step="4">
                         <div class="step-inner">
                             <div class="step-header">
                                 <p class="step-header-title">Tell us about the <b><em>number of windows</em></b></p>
@@ -186,7 +223,7 @@
                                 </div>
                                 
                                 <div class="step-buttons">
-                                    <button class="btn btn-secondary" type="button" id="step3-back">
+                                    <button class="btn btn-secondary" type="button" id="step4-back">
                                         <span class="btn-text">Back</span>
                                     </button>
                                     <!-- Continue button removed -->
@@ -195,8 +232,8 @@
                         </div>
                     </div>
                     
-                    <!-- Step 4: Contact Information -->
-                    <div class="step" id="step4" data-step="4">
+                    <!-- Step 5: Contact Information (previously Step 4) -->
+                    <div class="step" id="step5" data-step="5">
                         <div class="step-inner">
                             <div class="step-header">
                                 <p class="step-header-title">Almost there! <b><em>Your contact details</em></b></p>
@@ -256,7 +293,7 @@
                                     </div>
                                 </div>
                                 <div class="step-buttons">
-                                    <button class="btn btn-secondary" type="button" id="step4-back">
+                                    <button class="btn btn-secondary" type="button" id="step5-back">
                                         <span class="btn-text">Back</span>
                                     </button>
                                     <button class="btn btn-primary" type="submit" id="submit-form">

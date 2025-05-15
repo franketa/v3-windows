@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showStep(1);
         
         // Check if on mobile and show brand section and benefits again
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 576) {
             const brandSection = document.querySelector('.brand-section');
             const benefits = document.querySelector('.benefits');
             
@@ -59,14 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Step 3 - Back button
+    // Step 3 - Back button (new home ownership step)
     document.getElementById('step3-back').addEventListener('click', function() {
         showStep(2);
     });
     
-    // Step 4 - Back button
+    // Step 4 - Back button (previously step 3)
     document.getElementById('step4-back').addEventListener('click', function() {
         showStep(3);
+    });
+    
+    // Step 5 - Back button (previously step 4)
+    document.getElementById('step5-back').addEventListener('click', function() {
+        showStep(4);
     });
     
     // Function to show a specific step and hide others
@@ -112,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const brandSection = document.querySelector('.brand-section');
             const benefits = document.querySelector('.benefits');
             
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 576) {
                 if (brandSection) brandSection.style.display = 'none';
                 if (benefits) benefits.style.display = 'none';
             } else {
@@ -172,13 +177,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => showStep(currentStep + 1), 500);
                 }
                 
-                // For step 3 (number of windows), advance if not "1" or if "1" and multiple windows is selected
+                // For step 3 (home ownership), advance immediately
+                if (radio.name === 'HomeOwnership') {
+                    setTimeout(() => showStep(currentStep + 1), 500);
+                }
+                
+                // For step 4 (number of windows), advance if not "1" or if "1" and multiple windows is selected
                 if (radio.name === 'NumberOfWindows' && radio.value !== '1') {
                     setTimeout(() => showStep(currentStep + 1), 500);
                 }
                 
-                // For multiple windows question, advance if we're on step 3
-                if (radio.name === 'MultipleWindows' && currentStep === 3) {
+                // For multiple windows question, advance if we're on step 4
+                if (radio.name === 'MultipleWindows' && currentStep === 4) {
                     setTimeout(() => showStep(currentStep + 1), 500);
                 }
             }
@@ -252,6 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = {
             zip: document.getElementById('zip').value,
             projectScope: document.querySelector('input[name="WindowsProjectScope"]:checked')?.value,
+            homeOwnership: document.querySelector('input[name="HomeOwnership"]:checked')?.value,
             numberOfWindows: document.querySelector('input[name="NumberOfWindows"]:checked')?.value,
             multipleWindows: document.querySelector('input[name="MultipleWindows"]:checked')?.value,
             firstName: firstName.value,
