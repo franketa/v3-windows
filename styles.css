@@ -624,8 +624,9 @@ body {
 }
 
 .benefits-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-xl);
 }
 
@@ -633,6 +634,8 @@ body {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
+  max-width: 350px;
+  flex: 1 1 300px;
 }
 
 .benefit-icon {
@@ -755,6 +758,10 @@ body {
   .form-container {
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .benefit-item {
+    max-width: unset;
   }
   
   .service-icons {
