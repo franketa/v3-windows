@@ -27,6 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (zipInput.value.match(/^\d{5}$/)) {
                 zipError.style.display = 'none';
                 showStep(2);
+                
+                // Check if on mobile and hide brand section and benefits
+                if (window.innerWidth <= 576) {
+                    const brandSection = document.querySelector('.brand-section');
+                    const benefits = document.querySelector('.benefits');
+                    
+                    if (brandSection) brandSection.style.display = 'none';
+                    if (benefits) benefits.style.display = 'none';
+                }
             } else {
                 zipError.style.display = 'block';
             }
@@ -39,6 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Step 2 - Back button
     document.getElementById('step2-back').addEventListener('click', function() {
         showStep(1);
+        
+        // Check if on mobile and show brand section and benefits again
+        if (window.innerWidth <= 768) {
+            const brandSection = document.querySelector('.brand-section');
+            const benefits = document.querySelector('.benefits');
+            
+            if (brandSection) brandSection.style.display = '';
+            if (benefits) benefits.style.display = '';
+        }
     });
     
     // Step 3 - Back button
@@ -86,6 +104,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Handle window resize to manage visibility of sections on mobile
+    window.addEventListener('resize', function() {
+        const currentStep = document.querySelector('.step.active');
+        if (currentStep && currentStep.dataset.step === '2') {
+            const brandSection = document.querySelector('.brand-section');
+            const benefits = document.querySelector('.benefits');
+            
+            if (window.innerWidth <= 768) {
+                if (brandSection) brandSection.style.display = 'none';
+                if (benefits) benefits.style.display = 'none';
+            } else {
+                if (brandSection) brandSection.style.display = '';
+                if (benefits) benefits.style.display = '';
+            }
+        }
+    });
     
     // Handle ZIP code input - only allow numbers
     document.getElementById('zip').addEventListener('input', function(e) {
