@@ -564,7 +564,8 @@ body {
   border-radius: 50%;
   border-top-color: white;
   animation: spin 0.8s linear infinite;
-  margin-left: 10px;
+  margin-left: 5px;
+  box-sizing: border-box; /* Ensure border is included in width/height calculation */
 }
 
 @keyframes spin {
@@ -862,10 +863,27 @@ body {
 }
 
 .site-header .container {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 25px;
+  gap: 20px;
+}
+
+/* Back Arrow in Header */
+.back-arrow {
+  display: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.back-arrow.visible {
+  display: block;
+  animation: fadeIn 0.3s ease;
 }
 
 .logo {
@@ -926,7 +944,7 @@ body {
 
 .hero-content h1 {
   font-size: 36px;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-normal);
   margin-bottom: 30px;
   line-height: 1.2;
 }
@@ -1224,6 +1242,6 @@ body {
     width: 100%;
   }
   .site-header .container {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
