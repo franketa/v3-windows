@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const progressLines = document.querySelectorAll('.progress-line');
     const headerBackArrow = document.getElementById('header-back-arrow');
     
-    // Add event listener for the header back arrow
+    // Add event listener for the header back arrow - ONLY ONE EVENT LISTENER HERE
     if (headerBackArrow) {
         headerBackArrow.addEventListener('click', function() {
             const currentStep = document.querySelector('.step.active');
@@ -49,69 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 const currentStepNumber = parseInt(currentStep.dataset.step);
                 if (currentStepNumber > 1) {
                     showStep(currentStepNumber - 1);
+                    
+                    // If going back to step 1, show the brand section and benefits on mobile
+                    if (currentStepNumber - 1 === 1 && window.innerWidth <= 576) {
+                        const brandSection = document.querySelector('.brand-section');
+                        const benefits = document.querySelector('.benefits');
+                        const heroTitle = document.querySelector('.hero-title');
+                        
+                        if (brandSection) brandSection.style.display = '';
+                        if (benefits) benefits.style.display = '';
+                        if (heroTitle) heroTitle.style.display = '';
+                    }
                 }
             }
         });
     }
     
-    function showStep(stepNumber) {
-        // Get all steps (need to query them since we're outside the event listener)
-        const steps = document.querySelectorAll('.step');
-        const progressDots = document.querySelectorAll('.progress-dot');
-        const progressLines = document.querySelectorAll('.progress-line');
-
-        // Update steps visibility
-        steps.forEach(step => {
-            step.classList.remove('active');
-        });
-
-        const currentStep = document.querySelector(`.step[data-step="${stepNumber}"]`);
-        if (currentStep) {
-            currentStep.classList.add('active');
-        }
-
-        // Update progress indicator
-        updateProgress(stepNumber);
-
-        // Update header back arrow visibility
-        updateHeaderBackArrow(stepNumber);
-    }
-
-    // Define updateProgress function globally too since showStep calls it
-    function updateProgress(currentStep) {
-        const progressDots = document.querySelectorAll('.progress-dot');
-        const progressLines = document.querySelectorAll('.progress-line');
-
-        progressDots.forEach((dot, index) => {
-            const step = index + 1;
-            if (step <= currentStep) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-
-        progressLines.forEach((line, index) => {
-            if (index < currentStep - 1) {
-                line.classList.add('active');
-            } else {
-                line.classList.remove('active');
-            }
-        });
-    }
-
-    // Define updateHeaderBackArrow function globally too
-    function updateHeaderBackArrow(stepNumber) {
-        if (headerBackArrow) {
-            if (stepNumber > 1) {
-                headerBackArrow.style.display = 'block';
-            } else {
-                headerBackArrow.style.display = 'none';
-            }
-        }
-    }
-
-    // REMOVE THE NESTED DOMContentLoaded EVENT LISTENER
     // Initialize - show first step
     showStep(1);
 
@@ -144,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (brandSection) brandSection.style.display = 'none';
                     if (benefits) benefits.style.display = 'none';
                     if (heroTitle) heroTitle.style.display = 'none';
-
                 }
             } else {
                 zipError.style.display = 'block';
@@ -155,40 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 800);
     });
 
-    // Step 2 - Back button
-    document.getElementById('step2-back').addEventListener('click', function () {
-        showStep(1);
-
-        // Check if on mobile and show brand section and benefits again
-        if (window.innerWidth <= 576) {
-            const brandSection = document.querySelector('.brand-section');
-            const benefits = document.querySelector('.benefits');
-            const heroTitle = document.querySelector('.hero-title');
-
-            if (brandSection) brandSection.style.display = '';
-            if (benefits) benefits.style.display = '';
-            if (heroTitle) heroTitle.style.display = '';
-
-        }
-    });
-
-    // Step 3 - Back button (new home ownership step)
-    document.getElementById('step3-back').addEventListener('click', function () {
-        showStep(2);
-    });
-
-    // Step 4 - Back button (previously step 3)
-    document.getElementById('step4-back').addEventListener('click', function () {
-        showStep(3);
-    });
-
-    // Step 5 - Back button (previously step 4)
-    document.getElementById('step5-back').addEventListener('click', function () {
-        showStep(4);
-    });
-
-
-    // Remove the showStep function from here since we've moved it outside
+    // REMOVE ALL BACK BUTTON EVENT LISTENERS
+    // Step 2, 3, 4, 5 back buttons are removed
 
     // Handle window resize to manage visibility of sections on mobile
     window.addEventListener('resize', function () {
@@ -393,29 +313,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Header back arrow functionality
-const headerBackArrow = document.getElementById('header-back-arrow');
-
-// Show back arrow when form starts (after step 1)
-function updateHeaderBackArrow(currentStep) {
-    if (headerBackArrow) {
-        if (currentStep > 1) {
-            headerBackArrow.style.display = 'block';
-        } else {
-            headerBackArrow.style.display = 'none';
-        }
-    }
-}
-
-// Add click event to header back arrow
-headerBackArrow.addEventListener('click', function () {
-    // Find the current active step
-    const activeStep = document.querySelector('.step.active');
-    if (activeStep) {
-        const currentStepNum = parseInt(activeStep.dataset.step);
-        if (currentStepNum > 1) {
-            // Go to previous step
-            showStep(currentStepNum - 1);
-        }
-    }
-});
+// REMOVE ALL CODE OUTSIDE THE DOMContentLoaded EVENT
+// This was causing duplicate event listeners
