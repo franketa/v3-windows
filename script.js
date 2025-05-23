@@ -93,10 +93,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const brandSection = document.querySelector('.brand-section');
                     const benefits = document.querySelector('.benefits');
                     const heroTitle = document.querySelector('.hero-title');
+                    const heroBanner = document.querySelector('.hero-banner');
 
                     if (brandSection) brandSection.style.display = 'none';
                     if (benefits) benefits.style.display = 'none';
                     if (heroTitle) heroTitle.style.display = 'none';
+                    if (heroBanner) heroBanner.classList.add('hero-banner-active');
                 }
             } else {
                 zipError.style.display = 'block';

@@ -1178,6 +1178,9 @@ body {
   .hero-banner .container {
     flex-direction: column;
   }
+  .hero-banner-active{
+    padding:0!important;
+  }
   
   .hero-content {
     max-width: 100%;
