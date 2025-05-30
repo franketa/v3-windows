@@ -1282,4 +1282,10 @@ body {
   .step-fields {
     gap: var(--spacing-xs);
   }
+  .hero-banner {
+    padding: 30px 0;
+  }
+  .hero-content {
+    margin-bottom:0px;
+  }
 }
