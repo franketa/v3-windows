@@ -413,7 +413,6 @@ body {
 .checkbox-label {
   display: flex;
   align-items: flex-start;
-  cursor: pointer;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -606,6 +605,14 @@ body {
   color: var(--primary-color);
 }
 
+.optin-text {
+  font-size: var(--font-size-xs);
+  color: var(--text-color-lighter);
+  text-align: start;
+  margin-top: var(--spacing-sm);
+  line-height: 1.2;
+}
+
 /* Benefits Section */
 .benefits {
   background-color: var(--bg-color-white);
@@ -734,7 +741,7 @@ body {
 @media (max-width: 768px) {
   .form-row {
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
   
   .step-inner {
@@ -852,6 +859,27 @@ body {
   
   .service-icon span {
     font-size: 12px;
+  }
+  
+  /* Last step mobile-specific styles */
+  .step[data-step="5"] .step-header {
+    display: none;
+  }
+  
+  .step[data-step="5"] .step-title {
+    margin-bottom: 0;
+  }
+  
+  .step[data-step="5"] .optin-text {
+    margin-top: 0;
+  }
+  
+  .step[data-step="5"] .checkbox-group {
+    margin-top: 0;
+  }
+
+  .step[data-step="5"] .form-footer {
+    display: none;
   }
 }
 
@@ -1247,5 +1275,11 @@ body {
   }
   .site-header .container {
     flex-direction: row;
+  }
+  .radio-group {
+    gap: var(--spacing-xs);
+  }
+  .step-fields {
+    gap: var(--spacing-xs);
   }
 }
