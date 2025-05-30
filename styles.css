@@ -828,6 +828,7 @@ body {
   .step-buttons {
     flex-direction: column;
     gap: 10px;
+    margin-top:0;
   }
   
   .btn {
