@@ -1207,7 +1207,7 @@ body {
     flex-direction: column;
   }
   .hero-banner-active{
-    padding:0!important;
+    padding:0;
   }
   
   .hero-content {
