@@ -224,11 +224,6 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false;
         }
 
-        if (!terms.checked) {
-            document.getElementById('error-terms').style.display = 'block';
-            isValid = false;
-        }
-
         if (!isValid) {
             return;
         }
