@@ -7,7 +7,7 @@ set -e  # Exit on any error
 
 # Configuration
 APP_NAME="bigbrains-form"
-REPO_DIR="/var/www/bigbrains-form"
+REPO_DIR="/var/www/bigbrains-form-creator"
 NGINX_SITE="/etc/nginx/sites-available/bigbrains-form"
 LOG_FILE="/var/log/bigbrains-deploy.log"
 
