@@ -7,7 +7,7 @@
   --primary-color-transparent: rgba(0, 113, 188, 0.2);
   
   /* Neutral Colors */
-  --text-color: #333;
+  --text-color: #000;
   --text-color-light: #666;
   --text-color-lighter: #999;
   --error-color: #e74c3c;
@@ -68,12 +68,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.5;
   color: var(--text-color);
-  background-color: var(--bg-color);
-  background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: var(--bg-color-white);
   min-height: 100vh;
 }
 
@@ -678,11 +673,7 @@ body {
   color: var(--text-color-light);
   font-size: var(--font-size-sm);
   background-color: var(--bg-color-white);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--box-shadow);
   padding: var(--spacing-xxl);
-  margin-top: var(--spacing-xxl);
-  margin: 40px auto;
 }
 
 .footer p {
@@ -1202,7 +1193,7 @@ body {
     max-width: 100%;
     padding-right: 0;
     margin-bottom: 26px;
-    color: #000;
+    color: var(--text-color);
   }
   
   .form-container {
