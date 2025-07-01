@@ -776,7 +776,7 @@ body {
   }
   
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 16px;
     text-align: center;
   }
   
@@ -960,7 +960,7 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 36px;
+  font-size: 16px;
   font-weight: var(--font-weight-normal);
   margin-bottom: 30px;
   line-height: 1.2;
@@ -1201,7 +1201,8 @@ body {
   .hero-content {
     max-width: 100%;
     padding-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
+    color: #000;
   }
   
   .form-container {
@@ -1222,7 +1223,7 @@ body {
   }
   
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 16px;
     text-align: center;
   }
   
