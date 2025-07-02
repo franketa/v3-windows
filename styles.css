@@ -5,28 +5,28 @@
   --primary-color-dark: #005a96;
   --primary-color-light: rgba(0, 113, 188, 0.05);
   --primary-color-transparent: rgba(0, 113, 188, 0.2);
-  
+
   /* Neutral Colors */
   --text-color: #000;
   --text-color-light: #666;
   --text-color-lighter: #999;
   --error-color: #e74c3c;
-  
+
   /* Background Colors */
   --bg-color: #f5f5f5;
   --bg-color-light: #f9f9f9;
   --bg-color-white: #fff;
-  
+
   /* Border Colors */
   --border-color: #ddd;
   --border-color-focus: var(--primary-color);
-  
+
   /* Typography */
   --font-family-primary: 'Open Sans', Arial, sans-serif;
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Font Sizes */
   --font-size-xs: 12px;
   --font-size-sm: 14px;
@@ -35,7 +35,7 @@
   --font-size-lg: 20px;
   --font-size-xl: 24px;
   --font-size-xxl: 28px;
-  
+
   /* Spacing */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
@@ -44,14 +44,14 @@
   --spacing-xl: 25px;
   --spacing-xxl: 30px;
   --spacing-xxxl: 40px;
-  
+
   /* Border Radius */
   --border-radius: 4px;
   --border-radius-lg: 8px;
-  
+
   /* Box Shadow */
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  
+
   /* Transitions */
   --transition-speed: 0.3s;
 }
@@ -133,8 +133,6 @@ body {
 /* Progress Indicator */
 .progress-container {
   padding: var(--spacing-md) var(--spacing-lg);
-  background-color: var(--bg-color-light);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .progress-bar-wrapper {
@@ -167,18 +165,26 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
   animation: shimmer 2s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .progress-text {
-  text-align: center;
+  text-align: end;
   font-size: var(--font-size-sm);
   color: var(--primary-color);
   font-weight: var(--font-weight-semibold);
@@ -196,8 +202,15 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .step-inner {
@@ -250,7 +263,7 @@ body {
 
 .form-input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 24px;
   padding-left: 40px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -265,8 +278,8 @@ body {
   box-shadow: 0 0 0 3px var(--primary-color-transparent);
 }
 
-.form-input:focus + .form-group-label,
-.form-input:not(:placeholder-shown) + .form-group-label {
+.form-input:focus+.form-group-label,
+.form-input:not(:placeholder-shown)+.form-group-label {
   transform: translateY(-24px) scale(0.85);
   color: var(--primary-color);
   background-color: var(--bg-color-white);
@@ -366,21 +379,21 @@ body {
   transition: all var(--transition-speed) ease;
 }
 
-.radio-button-label input[type="radio"]:checked + .radio-button-custom {
+.radio-button-label input[type="radio"]:checked+.radio-button-custom {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(0, 113, 188, 0.2);
 }
 
-.radio-button-label input[type="radio"]:checked + .radio-button-custom:after {
+.radio-button-label input[type="radio"]:checked+.radio-button-custom:after {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.radio-button-label input[type="radio"]:checked ~ .radio-button-text {
+.radio-button-label input[type="radio"]:checked~.radio-button-text {
   color: var(--primary-color);
   font-weight: var(--font-weight-semibold);
 }
 
-.radio-button-label input[type="radio"]:checked ~ .radio-button-label:after {
+.radio-button-label input[type="radio"]:checked~.radio-button-label:after {
   animation: radio-ripple 0.8s ease-out;
 }
 
@@ -389,10 +402,12 @@ body {
     transform: scale(0, 0);
     opacity: 0.5;
   }
+
   20% {
     transform: scale(25, 25);
     opacity: 0.3;
   }
+
   100% {
     opacity: 0;
     transform: scale(40, 40);
@@ -448,12 +463,12 @@ body {
   font-size: 12px;
 }
 
-.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+.checkbox-label input[type="checkbox"]:checked+.checkbox-custom {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
-.checkbox-label input[type="checkbox"]:checked + .checkbox-custom:after {
+.checkbox-label input[type="checkbox"]:checked+.checkbox-custom:after {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -482,12 +497,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 24px;
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: all var(--transition-speed) ease;
+  transition: all 0.3s ease;
   border: none;
   position: relative;
   overflow: hidden;
@@ -516,10 +531,12 @@ body {
     transform: scale(0, 0);
     opacity: 0.5;
   }
+
   20% {
     transform: scale(25, 25);
     opacity: 0.3;
   }
+
   100% {
     opacity: 0;
     transform: scale(40, 40);
@@ -568,18 +585,20 @@ body {
   border-top-color: white;
   animation: spin 0.8s linear infinite;
   margin-left: 5px;
-  box-sizing: border-box; /* Ensure border is included in width/height calculation */
+  box-sizing: border-box;
+  /* Ensure border is included in width/height calculation */
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Step 1 specific styles */
 #step1 .btn-primary {
   margin-top: var(--spacing-md);
   width: 100%;
-  max-width: 120px;
   align-self: flex-end;
 }
 
@@ -743,25 +762,25 @@ body {
     flex-direction: column;
     gap: var(--spacing-xs);
   }
-  
+
   .step-inner {
     padding: var(--spacing-md);
   }
-  
+
   .benefits {
     padding: var(--spacing-lg);
   }
-  
+
   .benefits-list {
     grid-template-columns: 1fr;
   }
-  
+
   .trust-badges {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-md);
   }
-  
+
   .form-container {
     margin-left: 10px;
     margin-right: 10px;
@@ -770,20 +789,20 @@ body {
   .benefit-item {
     max-width: unset;
   }
-  
+
   .service-icons {
     justify-content: center;
   }
-  
+
   .hero-content h1 {
     font-size: 16px;
     text-align: center;
   }
-  
+
   .brand-logos {
     gap: 20px;
   }
-  
+
   .brand-logo {
     height: 30px;
   }
@@ -793,88 +812,88 @@ body {
   body {
     padding: 0px;
   }
-  
+
   .container {
     padding-left: 10px;
     padding-right: 10px;
   }
-  
+
   .form-container {
     width: calc(100% - 20px);
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   .step-inner {
     padding: var(--spacing-md) var(--spacing-md);
   }
-  
+
   .header h1 {
     font-size: var(--font-size-xl);
   }
-  
+
   .header p {
     font-size: var(--font-size-base);
   }
-  
+
   .step-header-title {
     font-size: var(--font-size-lg);
   }
-  
+
   .step-title {
     font-size: var(--font-size-base);
   }
-  
+
   .step-buttons {
     flex-direction: column;
     gap: 10px;
-    margin-top:0;
+    margin-top: 0;
   }
-  
+
   .btn {
     width: 100%;
   }
-  
+
   /* Form input spacing for mobile */
   .form-input-group {
     margin-bottom: 10px;
   }
-  
+
   /* Add padding to radio buttons on mobile */
   .radio-button-label {
     padding: 12px 10px;
   }
-  
+
   .service-icon {
     width: 100px;
   }
-  
+
   .icon-circle {
     width: 50px;
     height: 50px;
   }
-  
+
   .icon-circle i {
     font-size: 20px;
   }
-  
+
   .service-icon span {
     font-size: 12px;
   }
-  
+
   /* Last step mobile-specific styles */
   .step[data-step="5"] .step-header {
     display: none;
   }
-  
+
   .step[data-step="5"] .step-title {
     margin-bottom: 0;
   }
-  
+
   .step[data-step="5"] .optin-text {
     margin-top: 0;
   }
-  
+
   .step[data-step="5"] .checkbox-group {
     margin-top: 0;
   }
@@ -925,7 +944,7 @@ body {
   max-height: 25px;
   height: auto;
   margin-right: 10px;
-  width:100%
+  width: 100%
 }
 
 .logo-text {
@@ -1017,10 +1036,10 @@ body {
 }
 
 .form-container-thankyou {
-    background-color: var(--bg-color-white);
-    overflow: hidden;
-    margin-left: auto;
-  }
+  background-color: var(--bg-color-white);
+  overflow: hidden;
+  margin-left: auto;
+}
 
 /* Step 1 specific styles - Updated */
 #step1 {
@@ -1047,7 +1066,6 @@ body {
 #step1 .btn-primary {
   margin-top: var(--spacing-md);
   width: 100%;
-  max-width: 100px;
   align-self: flex-end;
   background-color: var(--primary-color);
   border-radius: 4px;
@@ -1123,7 +1141,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding:24px;
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
@@ -1175,12 +1193,12 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.radio-button-label input[type="radio"]:checked ~ .radio-button-text {
+.radio-button-label input[type="radio"]:checked~.radio-button-text {
   color: var(--primary-color);
   font-weight: var(--font-weight-semibold);
 }
 
-.radio-button-label input[type="radio"]:checked + .radio-button-custom {
+.radio-button-label input[type="radio"]:checked+.radio-button-custom {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(0, 113, 188, 0.2);
 }
@@ -1190,23 +1208,24 @@ body {
   .hero-banner .container {
     flex-direction: column;
   }
-  .hero-banner-active{
-    padding:0;
+
+  .hero-banner-active {
+    padding: 0;
   }
-  
+
   .hero-content {
     max-width: 100%;
     padding-right: 0;
     margin-bottom: 26px;
     color: var(--text-color);
   }
-  
+
   .form-container {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
   }
-  
+
   .form-arrow-indicator {
     display: none;
   }
@@ -1215,18 +1234,18 @@ body {
 @media (max-width: 768px) {
   .service-icons {
     justify-content: center;
-    display:none;
+    display: none;
   }
-  
+
   .hero-content h1 {
     font-size: 16px;
     text-align: center;
   }
-  
+
   .brand-logos {
     gap: 20px;
   }
-  
+
   .brand-logo {
     height: 30px;
   }
@@ -1236,41 +1255,46 @@ body {
   .service-icon {
     width: 100px;
   }
-  
+
   .icon-circle {
     width: 50px;
     height: 50px;
   }
-  
+
   .icon-circle i {
     font-size: 20px;
   }
-  
+
   .service-icon span {
     font-size: 12px;
   }
-  
+
   .step-buttons {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .btn {
     width: 100%;
   }
+
   .site-header .container {
     flex-direction: row;
   }
+
   .radio-group {
     gap: var(--spacing-xs);
   }
+
   .step-fields {
     gap: var(--spacing-xs);
   }
+
   .hero-banner {
-    padding: 30px 0;
+    padding: 10px 0;
   }
+
   .hero-content {
-    margin-bottom:0px;
+    margin-bottom: 0px;
   }
 }
