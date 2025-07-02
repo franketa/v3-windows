@@ -1,7 +1,5 @@
 function showStep(stepNumber) {
     const steps = document.querySelectorAll('.step');
-    const progressDots = document.querySelectorAll('.progress-dot');
-    const progressLines = document.querySelectorAll('.progress-line');
 
     steps.forEach(step => step.classList.remove('active'));
 
@@ -13,16 +11,18 @@ function showStep(stepNumber) {
 }
 
 function updateProgress(currentStep) {
-    const progressDots = document.querySelectorAll('.progress-dot');
-    const progressLines = document.querySelectorAll('.progress-line');
-
-    progressDots.forEach((dot, index) => {
-        dot.classList.toggle('active', index + 1 <= currentStep);
-    });
-
-    progressLines.forEach((line, index) => {
-        line.classList.toggle('active', index < currentStep - 1);
-    });
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    
+    const percentage = (currentStep / 5) * 100;
+    
+    if (progressFill) {
+        progressFill.style.width = percentage + '%';
+    }
+    
+    if (progressText) {
+        progressText.textContent = percentage + '% Complete';
+    }
 }
 
 function updateHeaderBackArrow(currentStep) {
@@ -35,8 +35,6 @@ function updateHeaderBackArrow(currentStep) {
 document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const form = document.getElementById('windows-quote-form');
-    const progressDots = document.querySelectorAll('.progress-dot');
-    const progressLines = document.querySelectorAll('.progress-line');
     const headerBackArrow = document.getElementById('header-back-arrow');
     
     if (headerBackArrow) {
