@@ -239,6 +239,7 @@ body {
   font-size: 24px;
   font-weight: var(--font-weight-semibold);
   color: var(--text-color);
+  margin-bottom: 15px;
 }
 
 .step-fields {
@@ -596,7 +597,6 @@ body {
 
 /* Step 1 specific styles */
 #step1 .btn-primary {
-  margin-top: var(--spacing-md);
   width: 100%;
   align-self: flex-end;
 }
@@ -1062,7 +1062,6 @@ body {
 }
 
 #step1 .btn-primary {
-  margin-top: var(--spacing-md);
   width: 100%;
   align-self: flex-end;
   background-color: var(--primary-color);
