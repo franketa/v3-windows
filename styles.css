@@ -264,7 +264,6 @@ body {
 .form-input {
   width: 100%;
   padding: 24px;
-  padding-left: 40px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
