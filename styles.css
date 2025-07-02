@@ -114,8 +114,6 @@ body {
 /* Form Container Styles */
 .form-container {
   background-color: var(--bg-color-white);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--box-shadow);
   overflow: hidden;
   position: relative;
   margin-bottom: var(--spacing-xxl);
@@ -958,7 +956,7 @@ body {
 }
 
 .highlight {
-  color: #fff;
+  color: var(--text-color);
   font-weight: var(--font-weight-bold);
 }
 
@@ -1002,8 +1000,6 @@ body {
 /* Form Container Styles - Updated */
 .form-container {
   background-color: var(--bg-color-white);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--box-shadow);
   overflow: hidden;
   width: 400px;
   margin-left: auto;
@@ -1011,8 +1007,6 @@ body {
 
 .form-container-thankyou {
     background-color: var(--bg-color-white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--box-shadow);
     overflow: hidden;
     margin-left: auto;
   }
