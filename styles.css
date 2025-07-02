@@ -135,7 +135,7 @@ body {
 
 /* Progress Indicator */
 .progress-container {
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-md);
 }
 
 .progress-bar-wrapper {
@@ -916,7 +916,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 25px;
+  padding: 0 var(--spacing-md);
   gap: 20px;
 }
 
