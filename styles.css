@@ -235,10 +235,9 @@ body {
 }
 
 .step-title {
-  font-size: var(--font-size-md);
+  font-size: 24px;
   font-weight: var(--font-weight-semibold);
   color: var(--text-color);
-  margin-bottom: var(--spacing-md);
 }
 
 .step-fields {
@@ -840,7 +839,7 @@ body {
   }
 
   .step-title {
-    font-size: var(--font-size-base);
+    font-size: 24px;
   }
 
   .step-buttons {
@@ -1047,7 +1046,6 @@ body {
 }
 
 #step1 .step-header {
-  background-color: var(--primary-color);
   color: white;
   padding: 15px;
   margin-bottom: 0;

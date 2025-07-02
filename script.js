@@ -44,16 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const currentStepNumber = parseInt(currentStep.dataset.step);
                 if (currentStepNumber > 1) {
                     showStep(currentStepNumber - 1);
-                    
-                    if (currentStepNumber - 1 === 1 && window.innerWidth <= 576) {
-                        const brandSection = document.querySelector('.brand-section');
-                        const benefits = document.querySelector('.benefits');
-                        const heroTitle = document.querySelector('.hero-title');
-                        
-                        if (brandSection) brandSection.style.display = '';
-                        if (benefits) benefits.style.display = '';
-                        if (heroTitle) heroTitle.style.display = '';
-                    }
                 }
             }
         });
