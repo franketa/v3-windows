@@ -133,11 +133,6 @@ body {
   width: 100%;
 }
 
-/* Progress Indicator */
-.progress-container {
-  padding: var(--spacing-md) var(--spacing-md);
-}
-
 .progress-bar-wrapper {
   max-width: 400px;
   margin: 0 auto;
@@ -221,7 +216,6 @@ body {
 }
 
 .step-header {
-  margin-bottom: var(--spacing-lg);
   text-align: center;
 }
 
@@ -984,7 +978,8 @@ body {
 .hero-content h1 {
   font-size: 16px;
   font-weight: var(--font-weight-normal);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
   line-height: 1.2;
 }
 
