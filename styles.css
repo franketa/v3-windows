@@ -188,9 +188,9 @@ body {
 
 .progress-text {
   text-align: end;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   color: var(--primary-color);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Step Styles */
@@ -267,11 +267,12 @@ body {
 .form-input {
   width: 100%;
   padding: 24px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   font-size: var(--font-size-base);
   transition: all var(--transition-speed) ease;
   background-color: var(--bg-color-white);
+  
 }
 
 .form-input:focus {
@@ -546,9 +547,23 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  flex: 1;
+  width: 100%;
+  align-self: flex-end;
+  background-color: initial;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: initial;
+  border: 2px solid #467fce;
+  border-radius: 8px;
+  color: #467fce;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+  padding: 24px;
+  transition: all .2s ease;
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -595,12 +610,6 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Step 1 specific styles */
-#step1 .btn-primary {
-  width: 100%;
-  align-self: flex-end;
 }
 
 /* Form Footer */
@@ -1060,18 +1069,6 @@ body {
   margin: 0;
 }
 
-#step1 .step-content {
-  padding: 20px;
-}
-
-#step1 .btn-primary {
-  width: 100%;
-  align-self: flex-end;
-  background-color: var(--primary-color);
-  border-radius: 4px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
 
 .form-arrow-indicator {
   position: absolute;
@@ -1152,11 +1149,6 @@ body {
   overflow: hidden;
 }
 
-.btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  box-shadow: 0 4px 6px rgba(0, 113, 188, 0.2);
-}
 
 .btn-primary:hover {
   background-color: var(--primary-color-dark);
