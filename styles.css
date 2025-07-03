@@ -246,6 +246,7 @@ body {
 /* Form Elements */
 .form-group {
   position: relative;
+  margin-bottom: 10px;
 }
 
 .form-row {
@@ -285,7 +286,7 @@ body {
 .form-group-label {
   position: absolute;
   left: 40px;
-  top: 12px;
+  top: 22px;
   color: var(--text-color-lighter);
   pointer-events: none;
   transition: all var(--transition-speed) ease;
@@ -882,9 +883,6 @@ body {
     display: none;
   }
 
-  .step[data-step="5"] .step-title {
-    margin-bottom: 0;
-  }
 
   .step[data-step="5"] .optin-text {
     margin-top: 0;
@@ -1196,6 +1194,9 @@ body {
   .hero-content h1 {
     font-size: 16px;
     text-align: center;
+  }
+  .progress-container {
+    margin-top: 20px;
   }
 
   .brand-logos {
