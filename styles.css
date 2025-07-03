@@ -563,12 +563,33 @@ body {
 
 .btn-primary:hover {
   background-color: var(--primary-color-dark);
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 113, 188, 0.3);
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: var(--primary-color-dark);
+  color: white;
   transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-primary:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  border-color: #e9ecef;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary:disabled:hover {
+  background-color: #e9ecef;
+  color: #6c757d;
+  border-color: #e9ecef;
+  transform: none;
   box-shadow: none;
 }
 

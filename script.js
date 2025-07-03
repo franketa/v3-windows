@@ -77,11 +77,17 @@ document.addEventListener('DOMContentLoaded', function () {
     
     showStep(1);
 
+    // Initially disable the GO button
+    document.getElementById('step1-button').disabled = true;
+
     document.querySelectorAll('.form-group-error-message').forEach(error => {
         error.style.display = 'none';
     });
 
     document.getElementById('step1-button').addEventListener('click', function () {
+        // Don't proceed if button is disabled
+        if (this.disabled) return;
+        
         const zipInput = document.getElementById('zip');
         const zipError = document.getElementById('error-zip');
 
@@ -133,6 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('zip').addEventListener('input', function (e) {
         this.value = this.value.replace(/[^0-9]/g, '');
+        
+        // Enable/disable the GO button based on ZIP length
+        const goButton = document.getElementById('step1-button');
+        if (this.value.length === 5) {
+            goButton.disabled = false;
+        } else {
+            goButton.disabled = true;
+        }
     });
 
     const windowsNumberInputs = document.querySelectorAll('input[name="NumberOfWindows"]');
