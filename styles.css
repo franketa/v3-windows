@@ -506,9 +506,9 @@ body {
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
   position: relative;
   overflow: hidden;
+  
 }
 
 .btn:after {
@@ -860,14 +860,7 @@ body {
     margin-top: 0;
   }
 
-  .btn {
-    width: 100%;
-  }
-
   /* Form input spacing for mobile */
-  .form-input-group {
-    margin-bottom: 10px;
-  }
 
   /* Add padding to radio buttons on mobile */
   .radio-button-label {
@@ -1134,20 +1127,7 @@ body {
 }
 
 /* Enhanced Button Styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding:24px;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  position: relative;
-  overflow: hidden;
-}
+
 
 
 .btn-primary:hover {
@@ -1264,10 +1244,6 @@ body {
   .step-buttons {
     flex-direction: column;
     gap: 10px;
-  }
-
-  .btn {
-    width: 100%;
   }
 
   .site-header .container {
