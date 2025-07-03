@@ -247,7 +247,6 @@ body {
 .step-fields {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
 }
 
 /* Form Elements */
@@ -868,10 +867,6 @@ body {
   /* Form input spacing for mobile */
 
   /* Add padding to radio buttons on mobile */
-  .radio-button-label {
-    padding: 12px 10px;
-  }
-
   .service-icon {
     width: 100px;
   }
@@ -1249,9 +1244,6 @@ body {
     gap: var(--spacing-xs);
   }
 
-  .step-fields {
-    gap: var(--spacing-xs);
-  }
 
   .hero-banner {
     padding: 10px 0;
