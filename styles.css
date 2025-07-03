@@ -317,7 +317,6 @@ body {
 .radio-group {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
 }
 
 .radio-button-label {
@@ -331,7 +330,7 @@ body {
   border-radius: 8px;
   color: #467fce;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
   padding: 24px;
@@ -1240,9 +1239,6 @@ body {
     flex-direction: row;
   }
 
-  .radio-group {
-    gap: var(--spacing-xs);
-  }
 
 
   .hero-banner {
