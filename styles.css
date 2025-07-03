@@ -734,6 +734,21 @@ body {
   margin-bottom: var(--spacing-sm);
 }
 
+.footer-features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-color-light);
+}
+
+.footer-badge {
+  height: 20px;
+  width: auto;
+  margin-right: 8px;
+}
+
 /* Thank You Page Styles */
 .thank-you-container {
   padding: var(--spacing-xxl);
