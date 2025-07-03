@@ -284,13 +284,9 @@ body {
 }
 
 .form-group-label {
-  position: absolute;
-  left: 40px;
-  top: 22px;
   color: var(--text-color-lighter);
   pointer-events: none;
   transition: all var(--transition-speed) ease;
-  transform-origin: left top;
 }
 
 .form-input-group-icon {
@@ -1195,6 +1191,7 @@ body {
     font-size: 16px;
     text-align: center;
   }
+
   .progress-container {
     margin-top: 20px;
   }
