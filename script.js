@@ -18,15 +18,18 @@ function showStep(stepNumber) {
 function resetStep4Visibility() {
     const multipleWindowsSection = document.querySelector('.step-extra');
     const mainWindowsRadioGroup = document.querySelector('#step4 .step-fields.radio-group');
+    const mainStepTitle = document.querySelector('#step4 .step-content > .step-title');
     const selectedWindowsOption = document.querySelector('input[name="NumberOfWindows"]:checked');
 
-    if (multipleWindowsSection && mainWindowsRadioGroup) {
+    if (multipleWindowsSection && mainWindowsRadioGroup && mainStepTitle) {
         if (selectedWindowsOption && selectedWindowsOption.value === '1') {
-            // If "1 window" is already selected, hide main group and show step-extra
+            // If "1 window" is already selected, hide main title and group, show step-extra
+            mainStepTitle.style.display = 'none';
             mainWindowsRadioGroup.style.display = 'none';
             multipleWindowsSection.style.display = 'block';
         } else {
-            // Otherwise, show main group and hide step-extra
+            // Otherwise, show main title and group, hide step-extra
+            mainStepTitle.style.display = 'block';
             mainWindowsRadioGroup.style.display = 'flex';
             multipleWindowsSection.style.display = 'none';
         }
@@ -135,16 +138,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const windowsNumberInputs = document.querySelectorAll('input[name="NumberOfWindows"]');
     const multipleWindowsSection = document.querySelector('.step-extra');
     const mainWindowsRadioGroup = document.querySelector('#step4 .step-fields.radio-group');
+    const mainStepTitle = document.querySelector('#step4 .step-content > .step-title');
 
-    if (multipleWindowsSection && mainWindowsRadioGroup) {
+    if (multipleWindowsSection && mainWindowsRadioGroup && mainStepTitle) {
         windowsNumberInputs.forEach(input => {
             input.addEventListener('change', function () {
                 if (this.value === '1') {
-                    // Hide the main radio group and show the step-extra
+                    // Hide the main title and radio group, show the step-extra
+                    mainStepTitle.style.display = 'none';
                     mainWindowsRadioGroup.style.display = 'none';
                     multipleWindowsSection.style.display = 'block';
                 } else {
-                    // Show the main radio group and hide the step-extra
+                    // Show the main title and radio group, hide the step-extra
+                    mainStepTitle.style.display = 'block';
                     mainWindowsRadioGroup.style.display = 'flex';
                     multipleWindowsSection.style.display = 'none';
                     document.querySelectorAll('input[name="MultipleWindows"]').forEach(radio => {

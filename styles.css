@@ -284,9 +284,10 @@ body {
 }
 
 .form-group-label {
-  color: var(--text-color-lighter);
+  color: var(--text-color);
   pointer-events: none;
   transition: all var(--transition-speed) ease;
+  font-weight: var(--font-weight-bold);
 }
 
 .form-input-group-icon {
