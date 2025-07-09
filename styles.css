@@ -246,7 +246,6 @@ body {
 /* Form Elements */
 .form-group {
   position: relative;
-  margin-bottom: 10px;
 }
 
 .form-row {
@@ -732,6 +731,7 @@ body {
 
 .footer p {
   margin-bottom: var(--spacing-sm);
+  font-size: 12px;
 }
 
 .footer-features {
@@ -742,11 +742,32 @@ body {
   font-size: var(--font-size-sm);
   color: var(--text-color-light);
 }
+.footer-features span{
+  font-weight: 500;
+}
 
 .footer-badge {
-  height: 20px;
-  width: auto;
+  height: 24px;
+  width: 24px;
   margin-right: 8px;
+}
+
+.footer-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.footer-link{
+  background: none;
+  border: none;
+  color: #727272;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
 /* Thank You Page Styles */
