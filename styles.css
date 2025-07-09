@@ -821,6 +821,7 @@ body {
   margin-bottom: var(--spacing-sm);
   font-size: 12px;
   padding-top:20px;
+  color: var(--text-color-light);
 }
 
 .footer-features {
