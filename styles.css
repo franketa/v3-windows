@@ -667,7 +667,6 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  color: var(--text-color-light);
   font-size: var(--font-size-sm);
   background-color: var(--bg-color-white);
   padding: var(--spacing-xxl);
@@ -684,7 +683,6 @@ body {
   justify-content: center;
   margin-bottom: var(--spacing-md);
   font-size: var(--font-size-sm);
-  color: var(--text-color-light);
 }
 .footer-features span{
   font-weight: 600;
@@ -1195,7 +1193,7 @@ body {
   }
 
   .progress-container {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   .brand-logos {

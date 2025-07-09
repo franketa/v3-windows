@@ -6,7 +6,7 @@
   --primary-color-transparent: rgba(0, 113, 188, 0.2);
   
   /* Neutral Colors */
-  --text-color: #333;
+  --text-color: #000;
   --text-color-light: #666;
   --text-color-lighter: #999;
   --error-color: #e74c3c;
