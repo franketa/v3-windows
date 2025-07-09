@@ -13,9 +13,6 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <div class="back-arrow" id="header-back-arrow">
-                <i class="fas fa-chevron-left"></i>
-            </div>
             <div class="logo">
                 <img src="public/images/american-home-pros-logo.png" alt="American Home Pros Logo" class="logo-icon">
             </div>
@@ -64,7 +61,15 @@
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progress-fill"></div>
                             </div>
-                            <div class="progress-text" id="progress-text">20% Complete</div>
+                            <div class="progress-controls">
+                                <div class="back-arrow" id="header-back-arrow">
+                                    <i class="fas fa-chevron-left"></i>
+                                </div>
+                                <div class="progress-text" id="progress-text">20% Complete</div>
+                                <div class="close-button" id="close-button">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -289,6 +294,25 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure?</h3>
+                <p>You have a few more questions to get your rates</p>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="back-to-form">Back to Form</button>
+                    <button class="btn btn-primary" id="exit-form">Exit</button>
+                </div>
             </div>
         </div>
     </div>

@@ -53,8 +53,38 @@ function updateProgress(currentStep) {
 
 function updateHeaderBackArrow(currentStep) {
     const headerBackArrow = document.getElementById('header-back-arrow');
+    const closeButton = document.getElementById('close-button');
+    
     if (headerBackArrow) {
-        headerBackArrow.style.display = currentStep > 1 ? 'block' : 'none';
+        if (currentStep > 1) {
+            headerBackArrow.classList.add('visible');
+        } else {
+            headerBackArrow.classList.remove('visible');
+        }
+    }
+    
+    if (closeButton) {
+        if (currentStep > 1) {
+            closeButton.classList.add('visible');
+        } else {
+            closeButton.classList.remove('visible');
+        }
+    }
+}
+
+function showModal() {
+    const modal = document.getElementById('confirmation-modal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideModal() {
+    const modal = document.getElementById('confirmation-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
     }
 }
 
@@ -62,7 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const steps = document.querySelectorAll('.step');
     const form = document.getElementById('windows-quote-form');
     const headerBackArrow = document.getElementById('header-back-arrow');
+    const closeButton = document.getElementById('close-button');
     
+    // Back arrow functionality
     if (headerBackArrow) {
         headerBackArrow.addEventListener('click', function() {
             const currentStep = document.querySelector('.step.active');
@@ -71,6 +103,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (currentStepNumber > 1) {
                     showStep(currentStepNumber - 1);
                 }
+            }
+        });
+    }
+    
+    // Close button functionality
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            showModal();
+        });
+    }
+    
+    // Modal functionality
+    const modal = document.getElementById('confirmation-modal');
+    const modalClose = document.getElementById('modal-close');
+    const backToFormBtn = document.getElementById('back-to-form');
+    const exitFormBtn = document.getElementById('exit-form');
+    
+    if (modalClose) {
+        modalClose.addEventListener('click', hideModal);
+    }
+    
+    if (backToFormBtn) {
+        backToFormBtn.addEventListener('click', hideModal);
+    }
+    
+    if (exitFormBtn) {
+        exitFormBtn.addEventListener('click', function() {
+            hideModal();
+            showStep(1);
+        });
+    }
+    
+    // Close modal when clicking outside
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
             }
         });
     }

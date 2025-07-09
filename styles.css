@@ -1,5 +1,6 @@
 /* Base Styles */
 @import 'root.css';
+
 /* Global Styles */
 * {
   box-sizing: border-box;
@@ -125,11 +126,161 @@ body {
   }
 }
 
+.progress-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .progress-text {
-  text-align: end;
+  text-align: center;
   font-size: var(--font-size-base);
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
+  flex: 1;
+}
+
+/* Back Arrow and Close Button in Progress Area */
+.back-arrow,
+.close-button {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.back-arrow.visible,
+.close-button.visible {
+  display: flex;
+}
+
+.back-arrow:hover,
+.close-button:hover {
+  background-color: #e5e7eb;
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.back-arrow i,
+.close-button i {
+  font-size: 14px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.modal-body {
+  padding: 40px 30px 30px;
+  text-align: center;
+}
+
+.modal-body h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.modal-body p {
+  color: #6b7280;
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-actions .btn {
+  margin: 0;
+  padding: 16px 24px;
+  font-weight: 600;
+}
+
+.modal-actions .btn-secondary {
+  background-color: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.modal-actions .btn-secondary:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.modal-actions .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Step Styles */
@@ -520,21 +671,14 @@ body {
 }
 
 .btn-primary:disabled {
-  background-color: #e9ecef;
-  color: #6c757d;
-  border-color: #e9ecef;
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #9ca3af;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.btn-primary:disabled:hover {
-  background-color: #e9ecef;
-  color: #6c757d;
-  border-color: #e9ecef;
-  transform: none;
-  box-shadow: none;
-}
 
 .btn-secondary {
   background-color: var(--bg-color-light);
@@ -675,6 +819,7 @@ body {
 .footer p {
   margin-bottom: var(--spacing-sm);
   font-size: 12px;
+  padding-top:20px;
 }
 
 .footer-features {
@@ -684,7 +829,8 @@ body {
   margin-bottom: var(--spacing-md);
   font-size: var(--font-size-sm);
 }
-.footer-features span{
+
+.footer-features span {
   font-weight: 600;
 }
 
@@ -694,14 +840,14 @@ body {
   margin-right: 8px;
 }
 
-.footer-links{
+.footer-links {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
 
-.footer-link{
+.footer-link {
   background: none;
   border: none;
   color: #727272;
@@ -854,6 +1000,49 @@ body {
     margin-top: 0;
   }
 
+  /* Progress controls responsive */
+  .progress-bar-wrapper {
+    max-width: 100%;
+  }
+  
+  .progress-controls {
+    gap: 8px;
+  }
+  
+  .back-arrow,
+  .close-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .back-arrow i,
+  .close-button i {
+    font-size: 12px;
+  }
+  
+  .progress-text {
+    font-size: 14px;
+  }
+
+  /* Modal responsive */
+  .modal-content {
+    margin: 20px;
+    max-width: none;
+    width: calc(100% - 40px);
+  }
+  
+  .modal-body {
+    padding: 30px 20px 20px;
+  }
+  
+  .modal-body h3 {
+    font-size: 20px;
+  }
+  
+  .modal-body p {
+    font-size: 14px;
+  }
+
   /* Form input spacing for mobile */
 
   /* Add padding to radio buttons on mobile */
@@ -909,20 +1098,7 @@ body {
   gap: 20px;
 }
 
-/* Back Arrow in Header */
-.back-arrow {
-  display: none;
-  font-size: 20px;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-
-.back-arrow.visible {
-  display: block;
-  animation: fadeIn 0.3s ease;
-}
+/* Legacy styles removed - back arrow moved to progress area */
 
 .logo {
   display: flex;
@@ -953,6 +1129,7 @@ body {
   position: relative;
   padding: 60px 0;
   flex: 1 1;
+  border-bottom: 1px dashed #e5e7eb;
 }
 
 .hero-banner .container {
