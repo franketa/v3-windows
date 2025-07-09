@@ -145,10 +145,10 @@ body {
 .back-arrow,
 .close-button {
   display: none;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background-color: #f3f4f6;
+  background-color: #fff;
   border: 1px solid #e5e7eb;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -171,7 +171,7 @@ body {
 
 .back-arrow i,
 .close-button i {
-  font-size: 14px;
+  font-size: 8px;
 }
 
 /* Modal Styles */
@@ -350,6 +350,7 @@ body {
 
 .form-input-group {
   position: relative;
+  margin-bottom:15px;
 }
 
 .form-input {
@@ -378,10 +379,10 @@ body {
 }
 
 .form-group-label {
-  color: var(--text-color);
+  color: #374151;
   pointer-events: none;
   transition: all var(--transition-speed) ease;
-  font-weight: var(--font-weight-bold);
+  font-weight: 600;
 }
 
 .form-input-group-icon {
@@ -1011,13 +1012,13 @@ body {
   
   .back-arrow,
   .close-button {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
   
   .back-arrow i,
   .close-button i {
-    font-size: 12px;
+    font-size: 8px;
   }
   
   .progress-text {
