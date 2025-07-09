@@ -134,7 +134,7 @@ body {
 }
 
 .progress-text {
-  text-align: center;
+  text-align: end;
   font-size: var(--font-size-base);
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
