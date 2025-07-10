@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 
 }
 
@@ -817,7 +818,7 @@ body {
   text-align: center;
   font-size: var(--font-size-sm);
   background-color: var(--bg-color-white);
-  padding: var(--spacing-xxl);
+  padding: 0 10px;
 }
 
 .footer p {
@@ -836,7 +837,7 @@ body {
 }
 
 .footer-features span {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .footer-badge {
