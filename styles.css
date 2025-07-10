@@ -69,6 +69,7 @@ body {
   flex-direction: column;
   max-width: 1140px;
   margin: 0 auto 40px;
+  padding: 0 20px;
 }
 
 /* Form Layout */
@@ -307,7 +308,6 @@ body {
 }
 
 .step-inner {
-  padding: var(--spacing-xl);
 }
 
 .step-header {
@@ -350,7 +350,10 @@ body {
 
 .form-input-group {
   position: relative;
-  margin-bottom:15px;
+}
+
+#step5 .form-input-group {
+  margin-bottom: 15px;
 }
 
 .form-input {
@@ -916,7 +919,6 @@ body {
   }
 
   .step-inner {
-    padding: var(--spacing-md);
   }
 
   .benefits {
@@ -977,7 +979,6 @@ body {
   }
 
   .step-inner {
-    padding: var(--spacing-md) var(--spacing-md);
   }
 
   .header h1 {
