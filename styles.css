@@ -818,7 +818,7 @@ body {
   text-align: center;
   font-size: var(--font-size-sm);
   background-color: var(--bg-color-white);
-  padding: 0 10px;
+  padding: 40px 10px 20px 10px;
 }
 
 .footer p {
