@@ -70,7 +70,7 @@ body {
   flex-direction: column;
   max-width: 1140px;
   margin: 0 auto 40px;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 /* Form Layout */
@@ -1375,6 +1375,7 @@ body {
 
   .progress-container {
     margin-top: 40px;
+    margin-bottom: 15px;
   }
 
   .brand-logos {
