@@ -752,6 +752,7 @@ body {
   text-align: start;
   margin-top: var(--spacing-sm);
   line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Benefits Section */
@@ -844,6 +845,7 @@ body {
   height: 24px;
   width: 24px;
   margin-right: 8px;
+  object-fit: contain;
 }
 
 .footer-links {
