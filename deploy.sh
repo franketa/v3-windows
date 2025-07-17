@@ -6,10 +6,10 @@
 set -e  # Exit on any error
 
 # Configuration
-APP_NAME="bigbrains-form"
-REPO_DIR="/var/www/bigbrains-form-creator"
-NGINX_SITE="/etc/nginx/sites-available/bigbrains-form"
-LOG_FILE="/var/log/bigbrains-deploy.log"
+APP_NAME="v3-windows"
+REPO_DIR="/var/www/v3-windows"
+NGINX_SITE="/etc/nginx/sites-available/v3-windows"
+LOG_FILE="/var/log/v3-windows-deploy.log"
 
 # Colors for output
 RED='\033[0;31m'
@@ -42,8 +42,6 @@ check_root() {
         exit 1
     fi
 }
-
-
 
 # Setup repository
 setup_repository() {
@@ -96,13 +94,13 @@ deploy_static() {
         log "Creating Nginx configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
+    
+    server_name windows3.homeprosusa.org;
     
     root $REPO_DIR;
     index index.html index.htm;
-    
-    server_name _;
     
     # Gzip compression
     gzip on;
@@ -141,12 +139,6 @@ EOF
     # Enable site and reload nginx
     ln -sf "$NGINX_SITE" /etc/nginx/sites-enabled/
     
-    # Remove default site if it exists
-    if [ -f "/etc/nginx/sites-enabled/default" ]; then
-        rm -f /etc/nginx/sites-enabled/default
-        log "Removed default Nginx site"
-    fi
-    
     # Test nginx configuration
     if nginx -t; then
         systemctl reload nginx
@@ -179,7 +171,7 @@ deploy_nodejs() {
     
     # Start application with PM2
     log "Starting application with PM2..."
-    pm2 start server.js --name "$APP_NAME"
+    pm2 start server.js --name "$APP_NAME" -- --port 3002
     pm2 save
     
     # Setup PM2 startup if not already done
@@ -190,10 +182,10 @@ deploy_nodejs() {
         log "Creating Nginx reverse proxy configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     
-    server_name _;
+    server_name windows3.homeprosusa.org;
     
     # Gzip compression
     gzip on;
@@ -207,7 +199,7 @@ server {
     add_header X-Content-Type-Options "nosniff" always;
     
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:3002;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -234,12 +226,6 @@ EOF
     
     # Enable site and reload nginx
     ln -sf "$NGINX_SITE" /etc/nginx/sites-enabled/
-    
-    # Remove default site if it exists
-    if [ -f "/etc/nginx/sites-enabled/default" ]; then
-        rm -f /etc/nginx/sites-enabled/default
-        log "Removed default Nginx site"
-    fi
     
     # Test nginx configuration
     if nginx -t; then
@@ -280,14 +266,12 @@ check_status() {
     fi
     
     # Test HTTP response
-    if curl -s -o /dev/null -w "%{http_code}" http://localhost | grep -q "200"; then
+    if curl -s -o /dev/null -w "%{http_code}" http://windows3.homeprosusa.org | grep -q "200"; then
         success "Application is responding (HTTP 200)"
     else
         warning "Application may not be responding correctly"
     fi
 }
-
-
 
 # Main deployment function
 main() {
@@ -315,12 +299,12 @@ main() {
     check_status
     
     success "Deployment completed successfully!"
-    log "Application should be available at: http://your-server-ip"
+    log "Application should be available at: http://windows3.homeprosusa.org"
 }
 
 # Help function
 show_help() {
-    echo "BigBrains Form Creator Deployment Script"
+    echo "V3 Windows Deployment Script"
     echo ""
     echo "Usage: $0 [OPTIONS]"
     echo ""
