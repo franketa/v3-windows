@@ -1114,9 +1114,10 @@ body {
 .logo-icon {
   width: auto;
   max-height: 25px;
+  object-fit: contain;
   height: auto;
   margin-right: 10px;
-  width: 100%
+  width: 100%;
 }
 
 .logo-text {
