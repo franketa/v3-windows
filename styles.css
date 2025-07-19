@@ -1201,6 +1201,7 @@ body {
 .service-icon span {
   font-size: 14px;
   line-height: 1.3;
+  color: var(--text-color);
 }
 
 /* Form Container Styles - Updated */
